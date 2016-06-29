@@ -1,8 +1,8 @@
 # PledgeKit
 
 
-[![Build Status](https://travis-ci.org/pledgekit/mean-test.svg?branch=master)](https://travis-ci.org/pledgekit/mean-test)
-[![Coverage Status](https://coveralls.io/repos/github/pledgekit/mean-test/badge.svg?branch=master)](https://coveralls.io/github/pledgekit/mean-test?branch=master)
+[![Build Status](https://travis-ci.org/pledgekit/pledgekit.svg?branch=master)](https://travis-ci.org/pledgekit/pledgekit)
+[![Coverage Status](https://coveralls.io/repos/github/pledgekit/pledgekit/badge.svg?branch=master)](https://coveralls.io/github/pledgekit/pledgekit?branch=master)
 
 
 
