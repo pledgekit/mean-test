@@ -285,6 +285,19 @@ module.exports = function (grunt) {
     });
   });
 
+  grunt.task.registerTask('set:app', 'Setting app Environment', function () {
+    var app = grunt.option('app') || '*';
+    var tddAssets = {
+      client: ['modules/' + app + '/tests/client/**/*.js'],
+      server: ['modules/' + app + '/tests/server/**/*.js'],
+      e2e: ['modules/' + app + '/tests/e2e/**/*.js']
+    };
+    grunt.config.set('mochaTest.src', tddAssets.server);
+    // grunt.config.set('karma.unit.files', []);
+    // grunt.config.set('karma.unit.options.files', _.union(defaultAssets.client.lib.js, defaultAssets.client.lib.tests, defaultAssets.client.js, defaultAssets.client.views, tddAssets.client));
+    grunt.config.set('protractor.e2e.options.args.specs', tddAssets.e2e);
+  });
+
   // Lint CSS and JavaScript files.
   grunt.registerTask('lint', ['sass', 'less', 'eslint', 'csslint']);
 
@@ -292,10 +305,10 @@ module.exports = function (grunt) {
   grunt.registerTask('build', ['env:dev', 'lint', 'ngAnnotate', 'uglify', 'cssmin']);
 
   // Run the project tests
-  grunt.registerTask('test', ['env:test', 'lint', 'mkdir:upload', 'copy:localConfig', 'server', 'mochaTest', 'karma:unit', 'protractor']);
-  grunt.registerTask('test:server', ['env:test', 'lint', 'server', 'mochaTest']);
-  grunt.registerTask('test:client', ['env:test', 'lint', 'karma:unit']);
-  grunt.registerTask('test:e2e', ['env:test', 'lint', 'dropdb', 'server', 'protractor']);
+  grunt.registerTask('test', ['set:app', 'env:test', 'lint', 'mkdir:upload', 'copy:localConfig', 'server', 'mochaTest', 'karma:unit', 'protractor']);
+  grunt.registerTask('test:server', ['set:app', 'env:test', 'lint', 'server', 'mochaTest']);
+  grunt.registerTask('test:client', ['set:app', 'env:test', 'lint', 'karma:unit']);
+  grunt.registerTask('test:e2e', ['set:app', 'env:test', 'lint', 'dropdb', 'server', 'protractor']);
   // Run project coverage
   grunt.registerTask('coverage', ['env:test', 'lint', 'mocha_istanbul:coverage', 'karma:unit']);
 
