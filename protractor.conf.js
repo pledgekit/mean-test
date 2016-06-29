@@ -2,10 +2,7 @@
 
 // Protractor configuration
 var config = {
-  specs: ['modules/*/tests/e2e/*.js'],
-  onPrepare: function() {
-    require('protractor-uisref-locator')(protractor);
-  }
+  specs: ['modules/*/tests/e2e/*.js']
 };
 
 if (process.env.TRAVIS) {
