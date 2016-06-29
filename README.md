@@ -1,3 +1,19 @@
+# PledgeKit
+
+
+[![Build Status](https://travis-ci.org/pledgekit/mean-test.svg?branch=master)](https://travis-ci.org/pledgekit/mean-test)
+[![Coverage Status](https://coveralls.io/repos/github/pledgekit/mean-test/badge.svg?branch=master)](https://coveralls.io/github/pledgekit/mean-test?branch=master)
+
+
+
+
+
+
+
+
+
+
+
 [![MEAN.JS Logo](http://meanjs.org/img/logo-small.png)](http://meanjs.org/)
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/meanjs/mean?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
