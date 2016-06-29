@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.org/pledgekit/pledgekit.svg?branch=master)](https://travis-ci.org/pledgekit/pledgekit)
 [![Coverage Status](https://coveralls.io/repos/github/pledgekit/pledgekit/badge.svg?branch=master)](https://coveralls.io/github/pledgekit/pledgekit?branch=master)
-[![Dependencies Status](https://david-dm.org/pledgekit/pledgekit.svg)](https://david-dm.org/meanjs/mean)
+[![Dependencies Status](https://david-dm.org/pledgekit/pledgekit.svg)](https://david-dm.org/pledgekit/pledgekit)
 
 
 
