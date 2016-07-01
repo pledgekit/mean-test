@@ -10,7 +10,22 @@ var mongoose = require('mongoose'),
  * Good Schema
  */
 var GoodSchema = new Schema({
-
+  name: {
+    type: String,
+    default: '',
+    trim: true,
+    required: 'Name cannot be blank'
+  },
+  created: {
+    date: {
+      type: Date,
+      default: Date.now
+    },
+    user: {
+      type: Schema.ObjectId,
+      ref: 'User'
+    }
+  }
 });
 
 mongoose.model('Good', GoodSchema);
