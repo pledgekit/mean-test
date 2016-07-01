@@ -25,6 +25,14 @@ var GoodSchema = new Schema({
     type: Number,
     required: 'Price cannot be blank'
   },
+  receiptDate: {
+    type: Date
+  },
+  notes: {
+    type: String,
+    default: '',
+    trim: true
+  },
   created: {
     date: {
       type: Date,
