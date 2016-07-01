@@ -32,6 +32,8 @@ describe('Good Model Unit Tests:', function () {
     user.save(function () {
       good = new Good({
         name: 'Good name',
+        description: 'this is a nice good',
+        price: 1.00,
         created: {
           user: user
         }
@@ -46,6 +48,24 @@ describe('Good Model Unit Tests:', function () {
       this.timeout(10000);
       return good.save(function (err) {
         should.not.exist(err);
+        done();
+      });
+    });
+
+    it('should be able to show an error when try to save without name', function (done) {
+      good.name = '';
+
+      return good.save(function (err) {
+        should.exist(err);
+        done();
+      });
+    });
+
+    it('should be able to show an error when try to save without a price', function (done) {
+      good.price = '';
+
+      return good.save(function (err) {
+        should.exist(err);
         done();
       });
     });

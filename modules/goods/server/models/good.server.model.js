@@ -16,6 +16,15 @@ var GoodSchema = new Schema({
     trim: true,
     required: 'Name cannot be blank'
   },
+  description: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  price: {
+    type: Number,
+    required: 'Price cannot be blank'
+  },
   created: {
     date: {
       type: Date,
