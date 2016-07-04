@@ -34,6 +34,14 @@ describe('Good Model Unit Tests:', function () {
         name: 'Good name',
         description: 'this is a nice good',
         price: 1.00,
+        donor: {
+          firstName: 'Johnny',
+          lastName: 'Appleseed',
+          email: 'japplesee@gmail.com',
+          receiptDate: {}
+        },
+        categories: ['men', 'women'],
+        notes: 'these are notes',
         created: {
           user: user
         }

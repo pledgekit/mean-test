@@ -25,15 +25,49 @@ var GoodSchema = new Schema({
     type: Number,
     required: 'Price cannot be blank'
   },
-  receiptDate: {
-    type: Date
+  donor: {
+    firstName: {
+      type: String,
+      trim: true,
+      required: 'First name cannot be blank'
+    },
+    lastName: {
+      type: String,
+      trim: true,
+      default: '',
+      required: 'Last name cannot be blank'
+    },
+    email: {
+      type: String,
+      trim: true,
+      default: ''
+    },
+    receiptDate: {
+      type: Date
+    }
   },
+  categories: [
+    {
+      type: String,
+      trim: true
+    }
+  ],
   notes: {
     type: String,
     default: '',
     trim: true
   },
   created: {
+    date: {
+      type: Date,
+      default: Date.now
+    },
+    user: {
+      type: Schema.ObjectId,
+      ref: 'User'
+    }
+  },
+  modified: {
     date: {
       type: Date,
       default: Date.now
