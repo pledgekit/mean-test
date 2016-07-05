@@ -38,7 +38,7 @@ describe('Good Model Unit Tests:', function () {
           firstName: 'Johnny',
           lastName: 'Appleseed',
           email: 'japplesee@gmail.com',
-          receiptDate: '2016-01-01'
+          receiptDate: {}
         },
         categories: ['men', 'women'],
         notes: 'these are notes',
