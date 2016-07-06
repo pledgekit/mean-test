@@ -29,13 +29,14 @@ var GoodSchema = new Schema({
     firstName: {
       type: String,
       trim: true,
-      required: 'First name cannot be blank'
+      default: '',
+      required: 'Donor\'s first name cannot be blank'
     },
     lastName: {
       type: String,
       trim: true,
       default: '',
-      required: 'Last name cannot be blank'
+      required: 'Donor\'s last name cannot be blank'
     },
     email: {
       type: String,
