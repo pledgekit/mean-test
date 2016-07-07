@@ -78,6 +78,15 @@ describe('Good Model Unit Tests:', function () {
       });
     });
 
+    it('should be able to show an error when try to save price is not a number', function (done) {
+      good.price = 'asasdf';
+
+      return good.save(function (err) {
+        should.exist(err);
+        done();
+      });
+    });
+
     it('should be able to show an error when try to save without a donors firstName', function (done) {
       good.donor.firstName = '';
 
