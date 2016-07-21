@@ -1,0 +1,116 @@
+'use strict';
+
+/**
+ * Module dependencies.
+ */
+var should = require('should'),
+  mongoose = require('mongoose'),
+  User = mongoose.model('User'),
+  Good = mongoose.model('Good');
+
+/**
+ * Globals
+ */
+var user,
+  good;
+
+  /**
+ * Unit tests
+ */
+describe('Good Model Unit Tests:', function () {
+
+  beforeEach(function (done) {
+    user = new User({
+      firstName: 'Full',
+      lastName: 'Name',
+      displayName: 'Full Name',
+      email: 'test@test.com',
+      username: 'username',
+      password: 'M3@n.jsI$Aw3$0m3'
+    });
+
+    user.save(function () {
+      good = new Good({
+        name: 'Good name',
+        description: 'this is a nice good',
+        price: 1.00,
+        donor: {
+          firstName: 'Johnny',
+          lastName: 'Appleseed',
+          email: 'japplesee@gmail.com',
+          receiptDate: '2016-01-01'
+        },
+        categories: ['men', 'women'],
+        notes: 'these are notes',
+        created: {
+          user: user
+        }
+      });
+
+      done();
+    });
+  });
+
+  describe('Method Save', function () {
+    it('should be able to save without problems', function (done) {
+      this.timeout(10000);
+      return good.save(function (err) {
+        should.not.exist(err);
+        done();
+      });
+    });
+
+    it('should be able to show an error when try to save without name', function (done) {
+      good.name = '';
+
+      return good.save(function (err) {
+        should.exist(err);
+        done();
+      });
+    });
+
+    it('should be able to show an error when try to save without a price', function (done) {
+      good.price = '';
+
+      return good.save(function (err) {
+        should.exist(err);
+        done();
+      });
+    });
+
+    it('should be able to show an error when try to save price is not a number', function (done) {
+      good.price = 'asasdf';
+
+      return good.save(function (err) {
+        should.exist(err);
+        done();
+      });
+    });
+
+    it('should be able to show an error when try to save without a donors firstName', function (done) {
+      good.donor.firstName = '';
+
+      return good.save(function (err) {
+        should.exist(err);
+        done();
+      });
+    });
+
+    it('should be able to show an error when try to save without a donors lastName', function (done) {
+      good.donor.lastName = '';
+
+      return good.save(function (err) {
+        should.exist(err);
+        done();
+      });
+    });
+
+
+  });
+
+  afterEach(function (done) {
+    Good.remove().exec(function () {
+      User.remove().exec(done);
+    });
+  });
+});
