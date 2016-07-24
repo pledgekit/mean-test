@@ -56,6 +56,8 @@ describe('Goods E2E Tests:', function () {
         browser.get('http://localhost:3001/');
         var create = element(by.uiSref('goods.create'));
         expect(create.isPresent()).toBe(true);
+        create.click();
+        expect(browser.getCurrentUrl()).toEqual('http://localhost:3001/goods/create');
       });
 
     });
